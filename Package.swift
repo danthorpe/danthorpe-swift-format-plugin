@@ -26,8 +26,8 @@ package.platforms = [
 extension Target {
     static let binary: Target = .binaryTarget(
         name: Binary,
-        url: "https://github.com/danthorpe/danthorpe-swift-format-plugin/releases/download/untagged-9f39ee5ff83a0ffa5dd3/swift-format.artifactbundle.zip",
-        checksum: "b3cdada3dedd0081ceb0fb106f42bdf847603b4126da180ca16285d20caa3269"
+        url: "https://github.com/danthorpe/danthorpe-swift-format-plugin/releases/download/0.2.0/swift-format.artifactbundle.zip",
+        checksum: "247a14f2e0fbca0c52a121fd76aab0202d93258571469361fe6734bd2996929b"
     )
 
     static let formatPlugin: Target = .plugin(
@@ -39,7 +39,7 @@ extension Target {
             ]
         ),
         dependencies: [
-            Binary
+            .target(name: Binary)
         ],
         path: "Plugins/FormatPlugin"
     )
@@ -53,7 +53,7 @@ extension Target {
             )
         ),
         dependencies: [
-            Binary
+            .target(name: Binary)
         ],
         path: "Plugins/LintPlugin"
     )
