@@ -14,7 +14,7 @@ struct LintPlugin: CommandPlugin {
         // Extract the arguments that specify what targets to format.
         var argExtractor = ArgumentExtractor(arguments)
         let targetNames = argExtractor.extractOption(named: "target")
-        let targetsToFormat = try context.package.targets(named: targetNames)
+        let targetsToFormat = targetNames.isEmpty ? context.package.targets : try context.package.targets(named: targetNames)
 
         let configurationFilePath = argExtractor.extractOption(named: "configuration").first
 
